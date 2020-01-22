@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -34,15 +36,11 @@ app.post("/brand", async (req, res) => {
   let youtubeAvailable;
   let instagramAvailable;
   let twitterAvailable;
-  let domains = [];
+  let domains;
 
   // check domain availability
-  const tlds = ["dev", "com", "tv", "io", "app", "me"];
-  tlds.forEach(tld => {
-    let domain = `${brand}.${tld}`;
-    godaddy.checkDomainAvailability(domain).then(data => {
-      domains.push(data);
-    });
+  await godaddy.getDomainAvailabilities(brand).then(data => {
+    domains = data;
   });
 
   // check twitch availability
