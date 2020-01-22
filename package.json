@@ -1,0 +1,63 @@
+{
+  "name": "brandable",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "proxy": "http://localhost:8080",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "react-app": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+  },
+  "keywords": [],
+  "author": "Patrick Hanford",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-loader-spinner": "^3.1.5",
+    "react-scripts": "0.9.5",
+    "superagent": "^5.2.1",
+    "twitch-js": "^2.0.0-beta.33",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "babel-eslint": "^10.0.3",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-react": "^7.18.0",
+    "husky": "^4.2.0",
+    "nodemon": "^2.0.2",
+    "postcss": "^7.0.26",
+    "postcss-cli": "^7.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "tailwindcss": "^1.1.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  }
+}
