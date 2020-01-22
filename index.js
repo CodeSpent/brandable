@@ -16,7 +16,7 @@ const facebook = require("./services/facebook");
 const youtube = require("./services/youtube");
 const github = require("./services/github");
 const brandable = require("./services/brandable");
-const godaddy = require("./services/godaddy");
+const domainr = require("./services/domainr");
 
 app.use(bodyParser.json());
 
@@ -97,8 +97,7 @@ app.post("/brand", async (req, res) => {
   });
 
   // check domain availability
-  await godaddy.getDomainAvailabilities(brand).then(data => {
-    console.log(data);
+  await domainr.getDomainAvailabilities(brand).then(data => {
     domains = data;
   });
 
