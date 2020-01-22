@@ -69,9 +69,6 @@ export default class Results extends React.Component {
             </div>
             <div className="text-2xl font-black text-left uppercase">
               <h1>Domains</h1>
-              <h4 className="text-xs text-gray-500">
-                Domain names checked against GoDaddy's API.
-              </h4>
             </div>
             <div className="flex flex-row flex-wrap justify-center">
               <DomainList domains={this.props.results.domains} />
