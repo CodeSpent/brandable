@@ -14,13 +14,17 @@ const api = axios.create({
 const getDomainAvailabilities = async function(sld) {
   const tlds = ["dev", "com", "tv", "io", "app", "me"];
   let checkedDomains = [];
-  tlds.forEach(tld => {
-    let domain = `${sld}.${tld}`;
-    checkDomainAvailability(domain).then(data => {
-      checkedDomains.push(data);
+  return new Promise(resolve => {
+    tlds.forEach(tld => {
+      let domain = `${sld}.${tld}`;
+      checkDomainAvailability(domain).then(data => {
+        checkedDomains.push(data);
+        if (checkedDomains.length == tlds.length) {
+          resolve(checkedDomains);
+        }
+      });
     });
   });
-  return checkedDomains;
 };
 
 const checkDomainAvailability = function(domain) {

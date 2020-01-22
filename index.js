@@ -38,11 +38,6 @@ app.post("/brand", async (req, res) => {
   let twitterAvailable;
   let domains;
 
-  // check domain availability
-  await godaddy.getDomainAvailabilities(brand).then(data => {
-    domains = data;
-  });
-
   // check twitch availability
   await twitch.getUser(brand).then(res => {
     const twitchUser = res.data;
@@ -101,8 +96,14 @@ app.post("/brand", async (req, res) => {
     }
   });
 
+  // check domain availability
+  await godaddy.getDomainAvailabilities(brand).then(data => {
+    console.log(data);
+    domains = data;
+  });
+
   // calculate score
-  brandabilityScore = brandable.calculateBrandabilityScore(
+  brandabilityScore = await brandable.calculateBrandabilityScore(
     brand,
     [
       twitchAvailable,

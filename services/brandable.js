@@ -1,20 +1,50 @@
 const logger = require("./logger");
 
-const calculateBrandabilityScore = (brand, socialsAvailability, domains) => {
+async function calculateSocialsScore(socials) {
+  let socialScore = 0;
+  return new Promise(resolve => {
+    socials.forEach((social, i) => {
+      if (social) {
+        socialScore += 10;
+      }
+
+      if (i + 1 == socials.length) {
+        resolve(socialScore);
+      }
+    });
+  });
+}
+
+async function calculateDomainsScore(domains) {
+  let domainsScore = 0;
+  return new Promise(resolve => {
+    domains.forEach((domain, i) => {
+      if (domain.available) {
+        domainsScore += 20;
+      }
+
+      if (i + 1 == domains.length) {
+        resolve(domainsScore);
+      }
+    });
+  });
+}
+
+const calculateBrandabilityScore = async (
+  brand,
+  socialsAvailability,
+  domains
+) => {
   let brandabilityScore = 0;
 
   // calculate based on social availability
-  socialsAvailability.forEach(x => {
-    if (x) {
-      brandabilityScore += 12;
-    }
+  await calculateSocialsScore(socialsAvailability).then(socialScore => {
+    brandabilityScore += socialScore;
   });
 
   // calculate based on domain availability
-  domains.forEach(x => {
-    if (x.available) {
-      brandabilityScore += 5;
-    }
+  await calculateDomainsScore(domains).then(domainScore => {
+    brandabilityScore += domainScore;
   });
 
   return brandabilityScore;
