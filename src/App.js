@@ -5,6 +5,7 @@ import Request from "superagent";
 import Header from "./components/header";
 import BrandInput from "./components/brandInput";
 import Results from "./components/results";
+import Footer from "./components/footer";
 
 // fontawesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -48,13 +49,16 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="flex flex-col items-center w-3/4 mx-auto my-12">
-        <Header />
-        <BrandInput onFormSubmit={this.onFormSubmit.bind(this)}></BrandInput>
-        <Results
-          loading={this.state.loading}
-          results={this.state.brandabilityData}
-        ></Results>
+      <div className="flex flex-col items-center w-3/4 h-screen py-5 mx-auto">
+        <div className="flex-grow lg:w-full">
+          <Header />
+          <BrandInput onFormSubmit={this.onFormSubmit.bind(this)}></BrandInput>
+          <Results
+            loading={this.state.loading}
+            results={this.state.brandabilityData}
+          ></Results>
+        </div>
+        <Footer />
       </div>
     );
   }
