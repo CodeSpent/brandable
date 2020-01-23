@@ -118,12 +118,14 @@ app.post("/brand", async (req, res) => {
   let results = {
     brand: brand,
     score: brandabilityScore,
-    instagramAvailable: instagramAvailable,
-    twitterAvailable: twitterAvailable,
-    facebookAvailable: facebookAvailable,
-    twitchAvailable: twitchAvailable,
-    youtubeAvailable: youtubeAvailable,
-    githubAvailable: githubAvailable,
+    socials: [
+      { name: "twitter", available: twitterAvailable },
+      { name: "instagram", available: instagramAvailable },
+      { name: "facebook", available: facebookAvailable },
+      { name: "twitch", available: twitchAvailable },
+      { name: "youtube", available: youtubeAvailable },
+      { name: "github", available: githubAvailable }
+    ],
     domains: domains
   };
   res.send(results);
