@@ -25,8 +25,8 @@ export default class Results extends React.Component {
               </span>
             </h1>
 
-            <div className="flex flex-col mt-10">
-              <div className="text-2xl font-black text-left uppercase">
+            <div className="flex flex-col m-5 mt-10">
+              <div className="text-2xl font-black text-left uppercase ">
                 <h1>Social Networks</h1>
                 <h4 className="text-xs text-gray-500">
                   Disclaimer: Usernames are not guranteed to be available for
@@ -46,20 +46,25 @@ export default class Results extends React.Component {
                 ))}
               </div>
             </div>
-            <div className="text-2xl font-black text-left uppercase">
-              <h1>Domains</h1>
-            </div>
-            <div className="flex flex-row flex-wrap justify-center">
-              {this.props.results.domains.map((domain, index) => (
-                <Card
-                  key={domain.domain}
-                  title={domain.domain}
-                  icon="globe"
-                  positive={domain.available}
-                  subtitle={domain.available ? "Available!" : "Taken"}
-                  brand={this.props.results.brand}
-                />
-              ))}
+            <div className="flex flex-col m-5 mt-10">
+              <div className="text-2xl font-black text-left uppercase ">
+                <h1>Domains</h1>
+                <h4 className="text-xs text-gray-500">
+                  Domain availability courtesy of Domainr.
+                </h4>
+              </div>
+              <div className="flex flex-row flex-wrap justify-center">
+                {this.props.results.domains.map((domain, index) => (
+                  <Card
+                    key={domain.domain}
+                    title={this.props.results.brand}
+                    icon={"globe"}
+                    positive={domain.available}
+                    subtitle={domain.available ? "Available!" : "Taken"}
+                    brand={this.props.results.brand}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
