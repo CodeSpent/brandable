@@ -33,8 +33,8 @@ export default class App extends React.Component {
       .send({ brand: form.brand })
       .set("Accept", "application/json")
       .then((res, err) => {
-        console.error(err);
         if (err) {
+          console.error(err);
           this.setState({
             error: true
           });

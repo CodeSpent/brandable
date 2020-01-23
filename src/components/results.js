@@ -1,8 +1,7 @@
 import React from "react";
 import Loading from "./loading";
 
-import PlatformCard from "./platformCard";
-import DomainList from "./domainList";
+import Card from "./card";
 
 export default class Results extends React.Component {
   constructor(props) {
@@ -35,43 +34,32 @@ export default class Results extends React.Component {
                 </h4>
               </div>
               <div className="flex flex-row flex-wrap justify-center">
-                <PlatformCard
-                  platform="instagram"
-                  available={this.props.results.instagramAvailable}
-                  brand={this.props.results.brand}
-                />
-                <PlatformCard
-                  platform="twitter"
-                  available={this.props.results.twitterAvailable}
-                  brand={this.props.results.brand}
-                />
-                <PlatformCard
-                  platform="facebook"
-                  available={this.props.results.facebookAvailable}
-                  brand={this.props.results.brand}
-                />
-                <PlatformCard
-                  platform="twitch"
-                  available={this.props.results.twitchAvailable}
-                  brand={this.props.results.brand}
-                />
-                <PlatformCard
-                  platform="youtube"
-                  available={this.props.results.youtubeAvailable}
-                  brand={this.props.results.brand}
-                />
-                <PlatformCard
-                  platform="github"
-                  available={this.props.results.githubAvailable}
-                  brand={this.props.results.brand}
-                />
+                {this.props.results.socials.map((social, index) => (
+                  <Card
+                    key={social.name}
+                    title={this.props.results.brand}
+                    icon={["fab", social.name]}
+                    positive={social.available}
+                    subtitle={social.available ? "Available!" : "Taken"}
+                    brand={this.props.results.brand}
+                  />
+                ))}
               </div>
             </div>
             <div className="text-2xl font-black text-left uppercase">
               <h1>Domains</h1>
             </div>
             <div className="flex flex-row flex-wrap justify-center">
-              <DomainList domains={this.props.results.domains} />
+              {this.props.results.domains.map((domain, index) => (
+                <Card
+                  key={domain.domain}
+                  title={domain.domain}
+                  icon="globe"
+                  positive={domain.available}
+                  subtitle={domain.available ? "Available!" : "Taken"}
+                  brand={this.props.results.brand}
+                />
+              ))}
             </div>
           </div>
         </div>
