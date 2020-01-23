@@ -16,7 +16,7 @@ export default class Results extends React.Component {
 
     if (this.props.results) {
       return (
-        <div className="mx-auto mt-10">
+        <div className="mx-auto mt-10 ">
           <div className="text-center">
             <h1 className="text-3xl font-bold">{this.props.results.brand}</h1>
             <h1 className="text-3xl font-bold">
@@ -78,7 +78,7 @@ export default class Results extends React.Component {
       );
     } else {
       return (
-        <div className="m-auto text-gray-600">
+        <div className="mx-auto my-5 text-center text-gray-600">
           <h1>Enter your product name above to see your brandability score.</h1>
         </div>
       );

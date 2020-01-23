@@ -25,12 +25,12 @@ export default class BrandInput extends React.Component {
   render() {
     return (
       <form
-        className="flex flex-row w-full"
+        className="flex flex-row w-full m-auto"
         onSubmit={this.onFormSubmit.bind(this)}
       >
         <input
           type="text"
-          className="w-full px-4 py-2 border rounded"
+          className="w-full px-4 py-2 border rounded "
           placeholder="Check a brand"
           required
           maxLength="50"
