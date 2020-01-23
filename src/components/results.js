@@ -41,7 +41,6 @@ export default class Results extends React.Component {
                     icon={["fab", social.name]}
                     positive={social.available}
                     subtitle={social.available ? "Available!" : "Taken"}
-                    brand={this.props.results.brand}
                   />
                 ))}
               </div>
@@ -57,11 +56,10 @@ export default class Results extends React.Component {
                 {this.props.results.domains.map((domain, index) => (
                   <Card
                     key={domain.domain}
-                    title={this.props.results.brand}
+                    title={domain.domain}
                     icon={"globe"}
                     positive={domain.available}
                     subtitle={domain.available ? "Available!" : "Taken"}
-                    brand={this.props.results.brand}
                   />
                 ))}
               </div>
