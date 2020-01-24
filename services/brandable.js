@@ -16,9 +16,7 @@ const findPossibleWords = async brand => {
 
 const getMatchWithLeastunusedChars = async matches => {
   let match = matches.reduce((min, match) =>
-    min.unusedChars.length < match.unusedChars.length
-      ? min
-      : match
+    min.unusedChars.length < match.unusedChars.length ? min : match
   );
   return match;
 };
@@ -39,10 +37,7 @@ const getProbableMatches = async (possibleWords, compareString) => {
         };
         newMatches.push(combinationObject);
         let compareStringArray = [...compareString];
-        let unusedCharsString = compareString.replace(
-          trimmedCombination,
-          ""
-        );
+        let unusedCharsString = compareString.replace(trimmedCombination, "");
 
         if (
           unusedCharsString.length === 0 &&
@@ -198,7 +193,7 @@ const calculateBrandabilityScore = async (
 
   return {
     score: Math.round(brandabilityScore),
-    sentiment: {
+    analysis: {
       wordsFromBrand: wordsFromBrand,
       memorabilityScore: memorabilityScore,
       lengthScore: brandLengthScore,

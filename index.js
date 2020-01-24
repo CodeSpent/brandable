@@ -117,7 +117,7 @@ app.post("/brand", async (req, res) => {
   let results = {
     brand: brand,
     score: brandabilityObject.score,
-    sentiment: brandabilityObject.sentiment,
+    analysis: brandabilityObject.analysis,
     socials: [
       { name: "twitter", available: twitterAvailable },
       { name: "instagram", available: instagramAvailable },
@@ -129,10 +129,10 @@ app.post("/brand", async (req, res) => {
     metrics: [
       {
         name: "memorability",
-        value: brandabilityObject.sentiment.memorabilityScore
+        value: brandabilityObject.analysis.memorabilityScore
       },
-      { name: "length", value: brandabilityObject.sentiment.lengthScore },
-      { name: "trending", value: brandabilityObject.sentiment.trendScore }
+      { name: "length", value: brandabilityObject.analysis.lengthScore },
+      { name: "trending", value: brandabilityObject.analysis.trendScore }
     ],
     domains: domains
   };

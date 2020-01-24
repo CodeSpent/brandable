@@ -222,9 +222,9 @@ export default class Results extends React.Component {
             </div>
             <div className="flex flex-col m-5 mt-10">
               <div className="text-2xl font-black text-left uppercase ">
-                <h1>Sentiment</h1>
+                <h1>Brand Analysis</h1>
                 <h4 className="text-xs text-gray-500">
-                  Currently sentiment analysis only works in English.
+                  Currently brand analysis only works in English.
                 </h4>
               </div>
               <div className="flex flex-row flex-wrap justify-center">
