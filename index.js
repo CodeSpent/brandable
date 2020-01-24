@@ -102,7 +102,7 @@ app.post("/brand", async (req, res) => {
   });
 
   // calculate score
-  brandabilityScore = await brandable.calculateBrandabilityScore(
+  brandabilityObject = await brandable.calculateBrandabilityScore(
     brand,
     [
       twitchAvailable,
@@ -114,10 +114,10 @@ app.post("/brand", async (req, res) => {
     domains
   );
 
-  // construct response
   let results = {
     brand: brand,
-    score: brandabilityScore,
+    score: brandabilityObject.score,
+    sentiment: brandabilityObject.sentiment,
     socials: [
       { name: "twitter", available: twitterAvailable },
       { name: "instagram", available: instagramAvailable },
@@ -125,6 +125,14 @@ app.post("/brand", async (req, res) => {
       { name: "twitch", available: twitchAvailable },
       { name: "youtube", available: youtubeAvailable },
       { name: "github", available: githubAvailable }
+    ],
+    metrics: [
+      {
+        name: "memorability",
+        value: brandabilityObject.sentiment.memorabilityScore
+      },
+      { name: "length", value: brandabilityObject.sentiment.lengthScore },
+      { name: "trending", value: brandabilityObject.sentiment.trendScore }
     ],
     domains: domains
   };

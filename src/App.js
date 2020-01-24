@@ -10,8 +10,31 @@ import Footer from "./components/footer";
 // fontawesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-library.add(fab, faGlobe);
+import {
+  faGlobe,
+  faBrain,
+  faChartLine,
+  faRuler,
+  faSadTear,
+  faMeh,
+  faSmileBeam,
+  faAngry,
+  faSurprise,
+  faSnowflake
+} from "@fortawesome/free-solid-svg-icons";
+library.add(
+  fab,
+  faGlobe,
+  faBrain,
+  faChartLine,
+  faRuler,
+  faSadTear,
+  faMeh,
+  faSmileBeam,
+  faAngry,
+  faSurprise,
+  faSnowflake
+);
 
 export default class App extends React.Component {
   constructor(props) {

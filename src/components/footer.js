@@ -6,7 +6,7 @@ export default class Footer extends React.Component {
     return (
       <footer className="flex flex-col w-full p-4 text-center border-t-2 border-gray-300">
         <h1 className="text-gray-600">
-          Built with <FontAwesomeIcon icon={["fab", "react"]} /> by{" "}
+          Built with <FontAwesomeIcon icon={["fab", "react"]} spin /> by{" "}
           <a
             className="font-bold"
             href="https://codespent.dev/"
